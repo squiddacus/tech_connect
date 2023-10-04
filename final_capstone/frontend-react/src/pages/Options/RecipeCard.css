@@ -1,0 +1,43 @@
+.Recipe-img {
+    height: 250px;
+    /* max-height: 250px; */
+    width: auto;
+    /* max-width: 250px; */
+    background-size: contain;
+    object-fit: cover;
+    overflow: auto;
+  }
+
+  .Recipe-card {
+    overflow: auto;
+    height: 500px;
+    align-content: center;
+  }
+
+  .Recipe-text {
+    text-align: left;
+    /* white-space: nowrap; */
+    width: auto;
+    height: 100px;
+    overflow-y: scroll;
+  }
+
+  .details-button {
+    background: #CAC0FF;
+    color: white;
+    border-color: #CAC0FF;
+  }
+
+  .row {
+    display: flex;
+
+    justify-content: center;
+    
+    flex-flow:row wrap;
+  }
+
+  /*.Recipe-description {
+    text-align: center;
+    text-overflow: ellipsis;
+  }
+  */

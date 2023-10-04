@@ -1,0 +1,27 @@
+.meal-plan-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  .meal-plan-id {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .meal-plan-title {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+  .meal-plan-description {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .details-button {
+      background: #CAC0FF;
+      color: white;
+      border-color: #CAC0FF;
+    }

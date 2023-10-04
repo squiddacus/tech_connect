@@ -1,0 +1,15 @@
+.section-card:hover {
+    cursor: pointer;
+    background: #FFF6F1;
+    /* color: white; */
+}
+
+.section-row {
+    justify-content: flex-end;
+}
+
+.add-button {
+    background: #CAC0FF;
+      color: white;
+      border-color: #CAC0FF;
+}

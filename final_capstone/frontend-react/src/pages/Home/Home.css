@@ -1,0 +1,160 @@
+ /* * {
+   height: 100%;
+} */
+.monospace-text {
+  font-family: 'Merriweather';
+}
+  .big-bold-font {
+    font-family: 'Merriweather';
+  font-size: 120px; /* Adjust the size as needed */
+  font-weight: bold;
+  align-items: left;
+  justify-content: center;
+  color: white;
+  flex-grow: 2;
+  /* text-align: center;  do not add this because it moves the title to the wrong side*/
+  margin-bottom: 10px;
+  }
+  .big-bold-font2 {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 24px; /* Adjust the size as needed */
+    font-weight: 700; /* 700 represents the 'bold' font weight for Alegreya Sans SC */
+    text-align: center;
+    /* max-height: 10px; */
+    overflow: none;
+    background-color: rgba(16, 85, 37, 0.5);
+  }
+.background-container {
+    background-image: url("../../images/vegan-meal-te-main-200527.jpg");
+    /* background-size:; */
+    background-repeat: no-repeat;
+    background-position: center;
+  overflow: auto;
+    /* min-height: 100vh; */
+  }
+
+  .parallax-container {
+    position: relative;
+    width: 100%;
+    /* height: 100vh; removing height and flex made the text disappear for the descriptionof the app */
+    display: flex;
+    /* overflow: auto; */
+    justify-content: center;
+    align-items: center;
+    /* padding-top: auto; */
+   
+  }
+  .parallax {
+    position:relative;
+    /* top: 0;
+    left: 0; */
+    overflow: auto;
+    /* width: auto;
+    height: auto; */
+    transition: transform 0.2s ease-out;
+  }
+  .parallax-image {
+    background-image: url("../../images/vegan-meal-te-main-200527.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: cadetblue;
+    /* overflow: scroll; */
+    /* min-height: 100vh; */
+    /* height: auto; */
+    /* width: auto;
+    height: auto; */
+    object-fit: cover;
+    /* display: flex; */
+    /* align-items: center; */
+  }
+  .content {
+    position: relative;
+    z-index: 1;
+    /* overflow: none                                                                                        ; */
+    /* padding: 2rem; */
+    text-align: center;
+    color: #fff;
+    background-color: rgba(16, 85, 37, 0.5);
+  }
+
+  .header-buttons {
+    color: white;
+    size: 48px;
+  }
+
+  .option-buttons {
+    color: limegreen;
+  }
+
+  .text-container {
+    /* overflow: visible; */
+    background-color: #FFF6F1;
+    text-align: center;
+    padding: 2rem;
+    margin-top: none;
+    width: 100%;
+    padding-bottom: none;
+    overflow: none;
+
+  }
+
+  .additional-container {
+    /* overflow: visible; */
+    background-color: #fff;
+    text-align: center;
+    overflow: none;
+    /* margin-bottom:0vmax;
+    margin-top: 25vh; */
+    /* width: 100%; */
+    /* padding-top: 10%; */
+
+  }
+
+  .additional-content {
+    /* overflow: visible; */
+    background-color: #fff;
+    text-align: center;
+     overflow: none;
+    /* margin-bottom:0vmax;
+    margin-top: 25vh; */
+    /* width:0vmin; */
+    
+    /* padding-top: 10%;  do not move anything that is commented because the navbar is SENSITIVE*/
+
+  }
+   
+  .diagram {
+   max-width: 800px; /* Adjust the value as needed */
+   max-height: 600px; /* Adjust the value as needed*/
+  
+   
+  }
+
+
+  .faq-list {
+    list-style: none;
+    margin-top: 20px; /* Adjust as needed */
+    padding: 0;
+  }
+  .faq-item {
+    margin-bottom: 20px; /* Adjust as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #F9F9F9;
+  }
+  .faq-item h3 {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 18px;
+    font-weight:bolder;
+    margin-bottom: 3px;
+    color: #3a433c;
+  }
+  .faq-item p {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+  }
+ 

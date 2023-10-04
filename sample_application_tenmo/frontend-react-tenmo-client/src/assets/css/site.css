@@ -1,0 +1,181 @@
+
+@import url('https://use.fontawesome.com/releases/v5.9.0/css/all.css');
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: white; 
+    padding: 10px;
+    background-color: white; /* rgba(192, 192, 192, 0.1) ;*/
+    grid-area:header;
+}
+
+nav  {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-top: 10px;
+    background-color: rgba(192, 192, 192, 0.1);
+    grid-area: menu;
+}
+nav > * {
+    border-right: solid 1px white;
+    margin:0 5px;
+    padding-right:10px;
+}
+nav > *:last-child {
+    border-right: none;
+    
+}
+
+footer {
+    grid-area:footer;
+}
+a:link, a:visited {
+  text-decoration: none;
+}
+.card-inner{    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-amount{
+    font-size: 2em;
+    font-weight: bold;
+}
+.box-icon{
+  padding: 10px;
+  font-size: 1.5em;
+  border-radius: 30px;
+  min-width: 2.3em;
+  text-align: center;
+}
+.card-color-blue {
+  background: linear-gradient(to right, #01a9ac, #01dbdf);
+  color: white;
+}
+.card-color-purple {
+  background: linear-gradient(to right, #5101ac, #8f54d3);
+  color: white;
+}
+.card-color-blue .card-inner .box-icon {
+  background-color: white;
+  color: #01a9ac;
+}
+.card-color-blue>.card-bottom {
+  background-color:  #01a9ac;
+}
+
+.card-color-green {
+  background: linear-gradient(to right,#0ac282,#0df3a3);
+  color: white;
+}
+.card-color-green .card-inner .box-icon {
+  background-color: white;
+  color: #0ac282;
+}
+.card-color-green>.card-bottom {
+  background-color:  #0ac282;
+}
+
+.card-color-purple>.card-bottom {
+  background-color:  #5101ac;
+}
+
+.card-color-purple .card-inner .box-icon {
+  background-color: white;
+  color: #5101ac;
+}
+.card-color-orange {
+  background: linear-gradient(to right,#fe9365,#feb798);
+  color: white;
+}
+.card-color-orange .card-inner .box-icon {
+  background-color: white;
+  color: #fe9365;
+}
+.card-color-orange>.card-bottom {
+  background-color:  #fe9365;
+}
+
+.approved{
+    background-color: lightgreen;
+}
+.rejected {
+    background-color: #ff6969;
+}
+.pending {
+    background-color: #fe9365;
+}
+
+  
+
+/* 
+=================
+Table
+=====================
+*/
+
+.table_container {
+  max-width: 750px;
+  /* max-height: 500px; */
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+caption {
+  font-style: italic;
+  font-size: 90%;
+  margin-bottom: 10px;
+}
+
+.table th {
+  background: #fff;
+  padding: 8px 10px;
+  border-bottom: 1px solid #1a1a1a;
+  font-weight: bold;
+  text-align: left;
+}
+
+.table th.up {
+  background-image: url("../images/up_arrow.png");
+}
+.table th.down {
+  background-image: url("../images/down_arrow.png");
+}
+.table th.default {
+  background-image: url("..//images/default.png");
+}
+th.up,
+th.default,
+th.down {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.table td {
+  border-top: 1px solid #ddd;
+  padding: 8px 20px;
+}
+
+.table td a {
+  text-decoration: none;
+}
+
+.table tbody tr:first-child td {
+  border-top: none;
+}
+
+.table tbody tr:nth-child(n) td {
+  background: #eff0f0;
+}
+
+.table tbody tr:nth-child(2n) td {
+  background: #fff;
+}

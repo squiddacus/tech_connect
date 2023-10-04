@@ -1,0 +1,126 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS recipes;
+DROP TABLE IF EXISTS recipes_users;
+DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS categories_recipes;
+DROP TABLE IF EXISTS meal_plans;
+DROP TABLE IF EXISTS meal_plans_recipes;
+DROP TABLE IF EXISTS meal_plans_users;
+DROP TABLE IF EXISTS sections;
+DROP TABLE IF EXISTS section_recipes;
+DROP USER  IF EXISTS final_capstone_owner;
+DROP USER  IF EXISTS final_capstone_appuser;
+
+CREATE TABLE recipes (
+	recipe_id SERIAL,
+	recipe_name varchar(50) NOT NULL UNIQUE,
+	recipe_img varchar,
+	description varchar,
+	ingredients varchar,
+	time integer,
+	servings integer
+);
+
+CREATE TABLE meal_plans (
+	meal_plan_id SERIAL,
+	meal_plan_title varchar(50) NOT NULL,
+	meal_plan_description varchar
+);
+
+CREATE TABLE categories (
+	category_id SERIAL,
+	category varchar
+);
+
+CREATE TABLE meal_plan_recipes (
+	meal_plan_id_fk integer,
+	recipe_id_fk integer
+);
+
+CREATE TABLE categories_recipes (
+	category_id integer,
+	recipe_id integer
+);
+
+CREATE TABLE recipes_users (
+	recipe_id integer,
+	user_id integer,
+	PRIMARY KEY (recipe_id, user_id)
+);
+
+CREATE TABLE meal_plan_users (
+	meal_plan_id integer,
+	user_id integer,
+	PRIMARY KEY (meal_plan_id, user_id)
+);
+
+CREATE TABLE users (
+	user_id SERIAL,
+	username varchar(50) NOT NULL UNIQUE,
+	password_hash varchar(200) NOT NULL,
+	role varchar(50) NOT NULL,
+	CONSTRAINT PK_user PRIMARY KEY (user_id)
+);
+
+
+-- All passwords are: password
+
+INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('buddy','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('frank','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO recipes (recipe_name, recipe_img, description, ingredients, time, servings) VALUES ('Meatball', 'https://www.thereciperebel.com/wp-content/uploads/2021/02/meatball-recipe-www.thereciperebel.com-600-20-of-21.jpg', 'meatballs yum','ground beef', 30, 2);
+INSERT INTO recipes (recipe_name, recipe_img, description, ingredients, time, servings) VALUES ('Salad', 'https://www.eatingwell.com/thmb/ZgUTobMJAI_Q-zTpj273piX18h0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-250303-composed-salad-with-pickled-beets-smoked-tofu-Hero-02-9e2a9b7202a34d81908a4db78a927d57.jpg','salad yum','lettuce', 15, 1);
+INSERT INTO recipes (recipe_name, recipe_img, description, ingredients, time, servings) VALUES ('Chicken', 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/12/0/FN_Pats-Beercan-Chicken_s4x3.jpg.rend.hgtvcom.616.462.suffix/1382539876282.jpeg','chicken yum','chicken', 60, 2);
+insert into recipes_users (recipe_id, user_id) VALUES (1, 1);
+insert into recipes_users (recipe_id, user_id) VALUES (2, 1);
+insert into recipes_users (recipe_id, user_id) VALUES (3, 1);
+INSERT INTO categories (category) VALUES ('Chinese');
+INSERT INTO categories (category) VALUES ('American');
+INSERT INTO categories (category) VALUES ('Easy');
+INSERT INTO categories (category) VALUES ('Hard');
+INSERT INTO categories_recipes (category_id, recipe_id) VALUES (2,1);
+INSERT INTO categories_recipes (category_id, recipe_id) VALUES (2,2);
+INSERT INTO categories_recipes (category_id, recipe_id) VALUES (3,1);
+INSERT INTO categories_recipes (category_id, recipe_id) VALUES (3,2);
+
+INSERT INTO meal_plans (meal_plan_id, meal_plan_title, meal_plan_description) VALUES  (1, 'test meal plan', 'this is a test');
+INSERT INTO meal_plans (meal_plan_id, meal_plan_title, meal_plan_description) VALUES  (2, 'test meal plan 2', 'this is a test');
+INSERT INTO meal_plans (meal_plan_id, meal_plan_title, meal_plan_description) VALUES  (3, 'test meal plan 3', 'this is a test');
+
+INSERT INTO meal_plan_recipes (meal_plan_id_fk, recipe_id_fk) VALUES (1,2);
+INSERT INTO meal_plan_recipes (meal_plan_id_fk, recipe_id_fk) VALUES (2,3);
+INSERT INTO meal_plan_recipes (meal_plan_id_fk, recipe_id_fk) VALUES (3,1);
+
+INSERT INTO meal_plan_users (meal_plan_id, user_id)VALUES (1,2);
+INSERT INTO meal_plan_users (meal_plan_id, user_id)VALUES (2,3);
+INSERT INTO meal_plan_users (meal_plan_id, user_id)VALUES (3,1);
+
+INSERT INTO sections (section_title) VALUES ('Breakfast');
+INSERT INTO meal_plan_sections (meal_plan_id_fk, section_id_fk) VALUES (1, 1);
+
+-- ********************************************************************************
+-- This script creates the database users and grants them the necessary permissions
+-- ********************************************************************************
+
+CREATE USER final_capstone_owner
+WITH PASSWORD 'finalcapstone';
+
+GRANT ALL
+ON ALL TABLES IN SCHEMA public
+TO final_capstone_owner;
+
+GRANT ALL
+ON ALL SEQUENCES IN SCHEMA public
+TO final_capstone_owner;
+
+CREATE USER final_capstone_appuser
+WITH PASSWORD 'finalcapstone';
+
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON ALL TABLES IN SCHEMA public
+TO final_capstone_appuser;
+
+GRANT USAGE, SELECT
+ON ALL SEQUENCES IN SCHEMA public
+TO final_capstone_appuser;
